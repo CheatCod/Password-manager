@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane minHeight="205.0" minWidth="916.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+   <children>
+      <Button layoutX="24.0" layoutY="-78.0" mnemonicParsing="false" text="Button" />
+      <AnchorPane layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;">
+         <children>
+            <Text fill="WHITE" layoutX="77.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open data base" textAlignment="CENTER" wrappingWidth="206.13671875">
+               <font>
+                  <Font name="Futura Book" size="19.0" />
+               </font>
+            </Text>
+            <JFXPasswordField focusColor="#3d6480" layoutX="55.0" layoutY="146.0" prefHeight="25.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #041C33;" unFocusColor="WHITE" />
+            <Text fill="WHITE" layoutX="77.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" textAlignment="CENTER" wrappingWidth="206.13671875">
+               <font>
+                  <Font name="Futura Book" size="19.0" />
+               </font>
+            </Text>
+            <JFXButton layoutX="55.0" layoutY="82.0" prefHeight="41.0" prefWidth="250.0" style="-fx-background-color: #7AC8FF;" text="Open database">
+               <font>
+                  <Font name="Futura Book" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="54.0" layoutY="238.0" prefHeight="41.0" prefWidth="250.0" style="-fx-background-color: #7AC8FF;" text="Create new database">
+               <font>
+                  <Font name="Futura Book" size="20.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="-9.0" layoutY="-53.0" prefHeight="613.0" prefWidth="256.0" style="-fx-background-color: #002266;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.topAnchor="-53.0">
+         <children>
+            <Text fill="WHITE" layoutX="40.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello!">
+               <font>
+                  <Font name="System Bold" size="23.0" />
+               </font>
+            </Text>
+            <JFXButton layoutX="14.0" layoutY="135.0" prefHeight="31.0" prefWidth="240.0" text="             Passwords                                                     " textFill="WHITE" />
+            <JFXButton layoutX="14.0" layoutY="166.0" prefHeight="31.0" prefWidth="240.0" text="             Secured Text                                                      " textFill="WHITE" />
+            <JFXButton layoutX="14.0" layoutY="104.0" prefHeight="31.0" prefWidth="240.0" text="Password Manager                                      " textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="217.0" prefHeight="31.0" prefWidth="240.0" text="Banking                                       " textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="14.0" layoutY="248.0" prefHeight="31.0" prefWidth="240.0" text="             Bank accounts                                                     " textFill="WHITE" />
+            <JFXButton layoutX="14.0" layoutY="279.0" prefHeight="31.0" prefWidth="240.0" text="             Payments                                                      " textFill="WHITE" />
+            <JFXButton layoutX="14.0" layoutY="310.0" prefHeight="31.0" prefWidth="240.0" text="             IDs                                                      " textFill="WHITE" />
+         </children>
+         <effect>
+            <GaussianBlur />
+         </effect>
+      </Pane>
+   </children>
+</AnchorPane>
