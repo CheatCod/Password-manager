@@ -17,6 +17,8 @@ public class Main extends Application {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		primaryStage.setTitle("Password Manager");
+		primaryStage.setMinHeight(585);
+		primaryStage.setMinWidth(815);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
