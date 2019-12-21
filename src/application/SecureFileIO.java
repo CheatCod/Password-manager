@@ -18,7 +18,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class SecureFileIO {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		
 		System.out.println("Encrypt/Decrypt?");
 		String input = br.readLine();
 		String password;
@@ -31,7 +31,7 @@ public class SecureFileIO {
 			System.out.println("password:");
 			password = br.readLine();
 			double startTime = System.nanoTime();
-			fileEncrypt(cipher, password, fileAddress);
+			fileEncrypt(password, fileAddress);
 			double endTime = System.nanoTime();
 			double timeElapsed = endTime - startTime;
 			System.out.println("Execution time in milliseconds : " + 
@@ -44,7 +44,7 @@ public class SecureFileIO {
 			System.out.println("password:");
 			password = br.readLine();
 			double startTime = System.nanoTime();
-			fileDecrypt(cipher, password, fileAddress);
+			fileDecrypt(password, fileAddress);
 			double endTime = System.nanoTime();
 			double timeElapsed = endTime - startTime;
 			System.out.println("Execution time in milliseconds : " + 
@@ -52,7 +52,8 @@ public class SecureFileIO {
 		}
 	}
 
-	private static void fileEncrypt(Object cipher, String password, String fileAddress) throws Exception {
+	protected static void fileEncrypt(String password, String fileAddress) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		File file = new File(fileAddress);
 		FileInputStream inFile = new FileInputStream(fileAddress);
 		FileOutputStream outFile = new FileOutputStream(file.getParent() + "\\" + file.getName() + ".aes");
@@ -91,7 +92,8 @@ public class SecureFileIO {
 		System.out.println("File Encrypted.");
 	}
 
-	private static void fileDecrypt(Object cipher, String password, String fileAddress) throws Exception {
+	protected static void fileDecrypt(String password, String fileAddress) throws Exception {
+		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		FileInputStream fis = new FileInputStream(fileAddress);
 
 		FileOutputStream fos = new FileOutputStream(fileAddress.replace(".aes", ""));
