@@ -9,8 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane minHeight="205.0" minWidth="916.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1">
+<AnchorPane minHeight="205.0" minWidth="916.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers">
    <children>
       <Button layoutX="24.0" layoutY="-78.0" mnemonicParsing="false" text="Button" />
       <AnchorPane layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;">
@@ -26,7 +25,7 @@
                   <Font name="Futura Book" size="19.0" />
                </font>
             </Text>
-            <JFXButton layoutX="55.0" layoutY="82.0" prefHeight="41.0" prefWidth="250.0" style="-fx-background-color: #7AC8FF;" text="Open database">
+            <JFXButton fx:id="openDB" layoutX="55.0" layoutY="82.0" onAction="#selectFile" prefHeight="41.0" prefWidth="250.0" style="-fx-background-color: #7AC8FF;" text="Open database">
                <font>
                   <Font name="Futura Book" size="20.0" />
                </font>
