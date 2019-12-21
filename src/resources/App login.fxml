@@ -19,7 +19,7 @@
                   <Font name="Futura Book" size="19.0" />
                </font>
             </Text>
-            <JFXPasswordField focusColor="#3d6480" layoutX="55.0" layoutY="146.0" prefHeight="25.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #041C33;" unFocusColor="WHITE" />
+            <JFXPasswordField fx:id="txtPswField" focusColor="#3d6480" layoutX="55.0" layoutY="146.0" onAction="#Login" prefHeight="25.0" prefWidth="250.0" promptText="Password" style="-fx-background-color: #041C33;" unFocusColor="WHITE" />
             <Text fill="WHITE" layoutX="77.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" textAlignment="CENTER" wrappingWidth="206.13671875">
                <font>
                   <Font name="Futura Book" size="19.0" />
