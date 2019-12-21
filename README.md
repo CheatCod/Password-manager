@@ -1,4 +1,4 @@
 # Password-manager
 Password manager
 
-Use secureFileIo.java
+A modern, secure and easy to use password manager that offers infinite customizability
