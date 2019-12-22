@@ -15,6 +15,9 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class SecureFileIO {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -92,7 +95,7 @@ public class SecureFileIO {
 		System.out.println("File Encrypted.");
 	}
 
-	protected static void fileDecrypt(String password, String fileAddress) throws Exception {
+	protected static boolean fileDecrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		FileInputStream fis = new FileInputStream(fileAddress);
 
@@ -112,7 +115,7 @@ public class SecureFileIO {
 
 		// file decryption
 		((Cipher) cipher).init(Cipher.DECRYPT_MODE, secret, new IvParameterSpec(iv));
-
+		try {
 		byte[] in = new byte[64];
 		int read;
 		while ((read = fis.read(in)) != -1) {
@@ -128,6 +131,10 @@ public class SecureFileIO {
 		fos.flush();
 		fos.close();
 		System.out.println("File Decrypted.");
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 }
