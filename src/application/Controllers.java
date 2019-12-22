@@ -25,7 +25,7 @@ public class Controllers {
 	@FXML
 	private JFXPasswordField txtPswField;
 	@FXML
-	private AnchorPane menu;
+	protected AnchorPane menu;
 	@FXML
 	private AnchorPane promptDB;
 	private String fileAddress;
@@ -56,6 +56,7 @@ public class Controllers {
 			gaussianBlur.setRadius(0);
 			menu.setEffect(gaussianBlur);
 			promptDB.setVisible(false);
+			menu.setMouseTransparent(false);
 		}
 		
 	}
