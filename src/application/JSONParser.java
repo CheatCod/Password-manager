@@ -1,5 +1,5 @@
 package application;
-import org.json.*;
+import com.google.gson.*;
 public class JSONParser {
 	
 }

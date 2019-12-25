@@ -28,6 +28,10 @@ public class Controllers {
 	protected AnchorPane menu;
 	@FXML
 	private AnchorPane promptDB;
+	@FXML
+	private JFXButton creatDBButton;
+	@FXML 
+	private AnchorPane createDBPage;
 	private String fileAddress;
 
 	public void selectFile(ActionEvent event) {
@@ -41,7 +45,9 @@ public class Controllers {
 		}
 
 	}
-
+	public void createDB() {
+		createDBPage.setVisible(true);
+	}
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
 		if (fileAddress != null) 
