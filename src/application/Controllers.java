@@ -47,7 +47,7 @@ public class Controllers {
 		if (fileAddress != null) 
 		if (!SecureFileIO.fileDecrypt(txtPswField.getText(), fileAddress)) {
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Information Dialog");
+			alert.setTitle("Warning");
 			alert.setHeaderText(null);
 			alert.setContentText("Wrong password or corrupted database");
 			alert.showAndWait();
