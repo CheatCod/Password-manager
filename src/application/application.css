@@ -1,1 +1,7 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.banner {
+	-fx-background-color: linear-gradient(to right,#373B44, #4286f4);
+}
+.background {
+	-fx-background-color: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffffff);
+}

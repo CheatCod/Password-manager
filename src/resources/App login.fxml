@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.effect.GaussianBlur?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -9,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="205.0" minWidth="916.0" style="-fx-background-color: #EDEFF4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers">
+<AnchorPane minHeight="205.0" minWidth="916.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controllers">
    <children>
       <AnchorPane fx:id="menu" layoutX="-9.0" layoutY="-53.0" mouseTransparent="true" prefHeight="613.0" prefWidth="256.0" style="-fx-background-color: #002266;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-9.0" AnchorPane.topAnchor="-53.0">
          <children>
@@ -63,30 +65,31 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" visible="false">
+      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css">
          <children>
-            <Pane prefHeight="100.0" prefWidth="360.0" style="-fx-background-color: #717BF3;">
+            <Pane fx:id="banner" prefHeight="100.0" prefWidth="360.0" styleClass="banner" stylesheets="@../application/application.css">
                <children>
-                  <Text layoutX="34.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new database" textAlignment="CENTER" wrappingWidth="292.33740234375">
+                  <Text fill="WHITE" layoutX="34.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new database" textAlignment="CENTER" wrappingWidth="292.33740234375">
                      <font>
-                        <Font size="28.0" />
+                        <Font name="Futura Book" size="27.0" />
                      </font>
                   </Text>
                </children>
             </Pane>
-            <JFXPasswordField layoutX="22.0" layoutY="180.0" />
             <Text layoutX="22.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Databse name" wrappingWidth="167.13671875">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <Text layoutX="22.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="167.13671875">
+            <Text layoutX="22.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="167.13671875">
                <font>
                   <Font size="17.0" />
                </font>
             </Text>
-            <JFXPasswordField layoutX="22.0" layoutY="319.0" />
-            <Circle fill="#6872f0" layoutX="283.0" layoutY="457.0" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+            <JFXPasswordField layoutX="22.0" layoutY="259.0" />
+            <JFXTextField layoutX="22.0" layoutY="173.0" />
+            <Circle fill="#38393b" layoutX="297.0" layoutY="426.0" radius="47.0" stroke="#38393b" strokeType="INSIDE" strokeWidth="0.0" />
+            <MaterialDesignIconView fill="WHITE" glyphName="ARROW_RIGHT_BOLD" layoutX="267.0" layoutY="448.0" size="60" />
          </children>
       </AnchorPane>
    </children>

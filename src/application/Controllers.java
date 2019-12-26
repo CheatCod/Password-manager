@@ -21,18 +21,20 @@ import javafx.stage.Stage;
 
 public class Controllers {
 	@FXML
-	private JFXButton openDB;
+	protected JFXButton openDB;
 	@FXML
-	private JFXPasswordField txtPswField;
+	protected JFXPasswordField txtPswField;
 	@FXML
 	protected AnchorPane menu;
 	@FXML
-	private AnchorPane promptDB;
+	protected AnchorPane promptDB;
 	@FXML
-	private JFXButton creatDBButton;
+	protected JFXButton creatDBButton;
 	@FXML 
-	private AnchorPane createDBPage;
-	private String fileAddress;
+	protected AnchorPane createDBPage;
+	@FXML
+	protected Pane banner;
+	protected String fileAddress;
 
 	public void selectFile(ActionEvent event) {
 		FileChooser fc = new FileChooser();
