@@ -12,6 +12,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -67,5 +68,8 @@ public class Controllers {
 			menu.setMouseTransparent(false);
 		}
 		
+	}
+	public void onCreateDB(MouseEvent e) throws Exception {
+		createDBPage.setVisible(false);
 	}
 }
