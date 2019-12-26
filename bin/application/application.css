@@ -3,5 +3,5 @@
 	-fx-background-color: linear-gradient(to right,#373B44, #4286f4);
 }
 .background {
-	-fx-background-color: linear-gradient(#21D4FD, #B721FF);
+	-fx-background-color: linear-gradient(rgba(223,234,247,1), rgba(244,248,252,1));
 }
