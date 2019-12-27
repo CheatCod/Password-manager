@@ -53,7 +53,7 @@ public class SecureFileIO {
 			System.out.println("Execution time in milliseconds : " + 
 					timeElapsed / 1000000 + " for file " + file.length()/1048576 + " mb");
 		}
-	}*/
+	}**/
 
 	protected static void fileEncrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
