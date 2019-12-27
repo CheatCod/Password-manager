@@ -5,6 +5,7 @@ import java.io.File;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -24,6 +25,8 @@ public class Controllers {
 	@FXML
 	protected JFXButton openDB;
 	@FXML
+	protected JFXButton switchDB;
+	@FXML
 	protected JFXPasswordField txtPswField;
 	@FXML
 	protected AnchorPane menu;
@@ -35,6 +38,9 @@ public class Controllers {
 	protected AnchorPane createDBPage;
 	@FXML
 	protected Pane banner;
+	@FXML
+	protected MaterialDesignIconView lock;
+	
 	protected String fileAddress;
 
 	public void selectFile(ActionEvent event) {
@@ -46,10 +52,20 @@ public class Controllers {
 			openDB.setText(selectedFile.getAbsolutePath());
 			fileAddress = selectedFile.getAbsolutePath();
 		}
+		lock.setVisible(false);
 
 	}
 	public void createDB() {
 		createDBPage.setVisible(true);
+	}
+	
+	public void switchDB() {
+		GaussianBlur gaussianBlur = new GaussianBlur();
+		promptDB.setVisible(true);
+		createDBPage.setVisible(false);
+		menu.setDisable(true);
+		menu.setEffect(gaussianBlur);
+		txtPswField.setText("");
 	}
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
@@ -66,7 +82,9 @@ public class Controllers {
 			menu.setEffect(gaussianBlur);
 			promptDB.setVisible(false);
 			menu.setMouseTransparent(false);
+			menu.setDisable(false);
 		}
+		
 		
 	}
 	public void onCreateDB(MouseEvent e) throws Exception {
