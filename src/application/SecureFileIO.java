@@ -19,7 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class SecureFileIO {
-	public static void main(String[] args) throws Exception {
+/*	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.println("Encrypt/Decrypt?");
@@ -53,7 +53,7 @@ public class SecureFileIO {
 			System.out.println("Execution time in milliseconds : " + 
 					timeElapsed / 1000000 + " for file " + file.length()/1048576 + " mb");
 		}
-	}
+	}*/
 
 	protected static void fileEncrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
