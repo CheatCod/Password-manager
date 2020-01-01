@@ -76,7 +76,7 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" maxHeight="521.0" maxWidth="360.0" minHeight="521.0" minWidth="360.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css" visible="false" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" maxHeight="521.0" maxWidth="360.0" minHeight="521.0" minWidth="360.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="20.0">
          <children>
             <Pane fx:id="banner" prefHeight="100.0" prefWidth="360.0" styleClass="banner" stylesheets="@../application/application.css">
                <children>
@@ -97,10 +97,20 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <JFXPasswordField layoutX="22.0" layoutY="259.0" prefHeight="25.0" prefWidth="268.0" />
-            <JFXTextField layoutX="22.0" layoutY="173.0" prefHeight="25.0" prefWidth="268.0" />
+            <JFXPasswordField fx:id="setPasswordDB" layoutX="22.0" layoutY="261.0" prefHeight="25.0" prefWidth="268.0" />
+            <JFXTextField fx:id="setNameDB" layoutX="22.0" layoutY="173.0" prefHeight="25.0" prefWidth="268.0" />
             <Circle fill="#38393b" layoutX="297.0" layoutY="426.0" onMouseClicked="#onCreateDB" radius="47.0" stroke="#38393b" strokeType="INSIDE" strokeWidth="0.0" />
             <MaterialDesignIconView accessibleRole="PARENT" fill="WHITE" glyphName="LOCK" layoutX="267.0" layoutY="448.0" mouseTransparent="true" size="60" />
+            <JFXButton fx:id="ChooseDirectory" layoutX="22.0" layoutY="344.0" onAction="#chooseDirectory" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #7AC8FF;" text="Choose Location">
+               <font>
+                  <Font name="Futura Book" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="22.0" layoutY="434.0" onMouseClicked="#backToMenu" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: #7AC8FF;" text="Back">
+               <font>
+                  <Font name="Futura Book" size="20.0" />
+               </font>
+            </JFXButton>
          </children>
          <effect>
             <DropShadow height="40.0" radius="19.5" spread="0.16" width="40.0" />
