@@ -97,7 +97,7 @@ public class Controllers {
 			}
 	}
 	public void onCreateDB(MouseEvent e) throws Exception {
-		if(setPasswordDB.getText().isEmpty() || setNameDB.getText().isEmpty()|| folderAddress.isEmpty()) {
+		if(setPasswordDB.getText().isEmpty() || setNameDB.getText().isEmpty()|| folderAddress == null) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Warning");
 			alert.setHeaderText(null);
