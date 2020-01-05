@@ -28,6 +28,7 @@ public class SecureFileIO {
 		File file = new File(fileAddress);
 		FileInputStream inFile = new FileInputStream(fileAddress);
 		FileOutputStream outFile = new FileOutputStream(file.getParent() + "\\" + file.getName() + ".aes");
+		fileAddress = file.getParent() + "\\" + file.getName() + ".aes";
 		byte[] salt = new byte[8];
 		SecureRandom secureRandom = new SecureRandom();
 		secureRandom.nextBytes(salt);
@@ -64,8 +65,8 @@ public class SecureFileIO {
 
 	protected static boolean fileDecrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		File file = new File(fileAddress);
 		FileInputStream fis = new FileInputStream(fileAddress);
-
 		FileOutputStream fos = new FileOutputStream(fileAddress.replace(".aes", ""));
 		// reading the salt
 		// user should have secure mechanism to transfer the
@@ -97,6 +98,7 @@ public class SecureFileIO {
 		fis.close();
 		fos.flush();
 		fos.close();
+		file.delete();
 		} catch (Exception e) {
 			return false;
 		}

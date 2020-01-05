@@ -105,6 +105,18 @@ public class Controllers {
 			alert.showAndWait();
 		}else {
 			createDBPage.setVisible(false);
+			File file = new File(""+ChooseDirectory.getText()+"\\"+setNameDB.getText());
+			fileAddress = file.getAbsolutePath();
+			if(file.createNewFile()) {
+				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
+				fileAddress = file.getAbsolutePath()+".aes";
+				System.out.println(fileAddress);
+				openDB.setFont(Font.font("System", 12));
+				openDB.setText(fileAddress);
+				lock.setVisible(false);
+			}
+			
+			//System.out.println(""+ChooseDirectory.getText()+"\\"+setNameDB.getText()+".txt");
 			//create file and serialize to json
 		}
 	}
