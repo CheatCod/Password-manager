@@ -35,7 +35,7 @@ public class DatabaseEntry {
 	class WebsiteEntry {
 		private String entryDate;
 		private String nameOfWebsite;
-		private String websiteURL;
+		private String webURL;
 		private String password;
 		private int typeOfEntry;
 		
@@ -44,6 +44,16 @@ public class DatabaseEntry {
 			LocalDateTime now = LocalDateTime.now();  
 			entryDate = dtf.format(now);
 			typeOfEntry = 1;
+		}
+		
+		public void setNameOfWebsite(String name) {
+			nameOfWebsite = name;
+		}
+		public void setWebURL(String url) {
+			webURL = url;
+		}
+		public void setPassword(String password) {
+			password = password;
 		}
 	}
 	class SecuredTexEntry {
