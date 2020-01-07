@@ -23,6 +23,11 @@ public class SecureFileIO {
 
 	}
 
+	/**this method takes in a fileaddress and encrypt the file at the fileaddress
+	 * @param password
+	 * @param fileAddress
+	 * @throws Exception
+	 */
 	protected static void fileEncrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		File file = new File(fileAddress);
@@ -63,6 +68,12 @@ public class SecureFileIO {
 		file.delete();
 	}
 
+	/**this method takes in an file address and decrypt the file(if applicable), returns false if not successful 
+	 * @param password
+	 * @param fileAddress
+	 * @return
+	 * @throws Exception
+	 */
 	protected static boolean fileDecrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		File file = new File(fileAddress);
