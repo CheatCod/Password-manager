@@ -76,7 +76,7 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" maxHeight="521.0" maxWidth="360.0" minHeight="521.0" minWidth="360.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" maxHeight="521.0" maxWidth="360.0" minHeight="521.0" minWidth="360.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css" visible="false" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="20.0">
          <children>
             <Pane fx:id="banner" prefHeight="100.0" prefWidth="360.0" styleClass="banner" stylesheets="@../application/application.css">
                <children>
