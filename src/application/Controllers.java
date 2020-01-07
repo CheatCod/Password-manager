@@ -1,11 +1,17 @@
 package application;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import application.DatabaseEntry.WebsiteEntry;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +43,7 @@ public class Controllers {
 	protected AnchorPane promptDB;
 	@FXML
 	protected JFXButton creatDBButton;
-	@FXML 
+	@FXML
 	protected AnchorPane createDBPage;
 	@FXML
 	protected Pane banner;
@@ -45,18 +51,18 @@ public class Controllers {
 	protected MaterialDesignIconView lock;
 	@FXML
 	protected JFXButton ChooseDirectory;
-	@FXML 
+	@FXML
 	protected JFXPasswordField setPasswordDB;
 	@FXML
 	protected JFXTextField setNameDB;
 
 	protected String fileAddress;
 	protected String folderAddress;
+	
 
 	public void selectFile(ActionEvent event) {
 		FileChooser fc = new FileChooser();
-		fc.getExtensionFilters().addAll(
-				new ExtensionFilter("AES Encrypted files", "*.aes"));
+		fc.getExtensionFilters().addAll(new ExtensionFilter("AES Encrypted files", "*.aes"));
 		File selectedFile = fc.showOpenDialog(null);
 		if (selectedFile != null) {
 			openDB.setFont(Font.font("System", 12));
@@ -66,8 +72,10 @@ public class Controllers {
 		}
 
 	}
+
 	public void createDB(ActionEvent event) {
 		createDBPage.setVisible(true);
+		promptDB.setVisible(false);
 	}
 
 	public void switchDB(ActionEvent event) {
@@ -78,17 +86,17 @@ public class Controllers {
 		menu.setEffect(gaussianBlur);
 		txtPswField.setText("");
 	}
+
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
-		if (fileAddress != null) 
+		if (fileAddress != null)
 			if (!SecureFileIO.fileDecrypt(txtPswField.getText(), fileAddress)) {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Warning");
 				alert.setHeaderText(null);
 				alert.setContentText("Wrong password or corrupted database");
 				alert.showAndWait();
-			}
-			else {
+			} else {
 				gaussianBlur.setRadius(0);
 				menu.setEffect(gaussianBlur);
 				promptDB.setVisible(false);
@@ -96,37 +104,53 @@ public class Controllers {
 				menu.setDisable(false);
 			}
 	}
+
 	public void onCreateDB(MouseEvent e) throws Exception {
-		if(setPasswordDB.getText().isEmpty() || setNameDB.getText().isEmpty()|| folderAddress == null) {
+		if (setPasswordDB.getText().isEmpty() || setNameDB.getText().isEmpty() || folderAddress == null) {
+
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Warning");
 			alert.setHeaderText(null);
 			alert.setContentText("Please enter choose a location or enter your password/database name");
 			alert.showAndWait();
-		}else {
-			createDBPage.setVisible(false);
-			File file = new File(""+ChooseDirectory.getText()+"\\"+setNameDB.getText());
+		} else {
+			
+			File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
 			fileAddress = file.getAbsolutePath();
-			if(file.createNewFile()) {
+			if (file.createNewFile()) {
+				DatabaseEntry dbentry = new DatabaseEntry();
+				Object websiteEntry = dbentry.createEntry(1);
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				FileWriter writer = new FileWriter(file);
+			    BufferedWriter bw = new BufferedWriter(writer); 
+			    System.out.println(gson.toJson(websiteEntry));
+			    bw.write(gson.toJson(websiteEntry));
+			    bw.close();
 				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
-				fileAddress = file.getAbsolutePath()+".aes";
+				promptDB.setVisible(true);
+				fileAddress = file.getAbsolutePath() + ".aes";
 				System.out.println(fileAddress);
 				openDB.setFont(Font.font("System", 12));
 				openDB.setText(fileAddress);
 				lock.setVisible(false);
+				createDBPage.setVisible(false);
+				promptDB.setVisible(true);
 			}
-			
-			//System.out.println(""+ChooseDirectory.getText()+"\\"+setNameDB.getText()+".txt");
-			//create file and serialize to json
+
+			// System.out.println(""+ChooseDirectory.getText()+"\\"+setNameDB.getText()+".txt");
+			// create file and serialize to json
 		}
 	}
+
 	public void backToMenu(MouseEvent e) throws Exception {
 		createDBPage.setVisible(false);
+		promptDB.setVisible(true);
 	}
+
 	public void chooseDirectory(ActionEvent event) {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		File selectedDirectory = directoryChooser.showDialog(null);
-		if(selectedDirectory != null) {
+		if (selectedDirectory != null) {
 			ChooseDirectory.setFont(Font.font("System", 12));
 			ChooseDirectory.setText(selectedDirectory.getAbsolutePath());
 			folderAddress = selectedDirectory.getAbsolutePath();
