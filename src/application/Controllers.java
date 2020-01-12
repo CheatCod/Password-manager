@@ -67,7 +67,7 @@ public class Controllers {
 
 	protected String fileAddress;
 	protected String folderAddress;
-	
+	List<WebsiteEntry> Passwords = new ArrayList<>();
 
 	public void selectFile(ActionEvent event) {
 		FileChooser fc = new FileChooser();
@@ -160,7 +160,7 @@ public class Controllers {
 	
 	public void createPassword(MouseEvent e) throws Exception {
 		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
-		List<WebsiteEntry> Passwords = new ArrayList<>();
+		
 		DatabaseEntry dbentry = new DatabaseEntry();
 		Object websiteEntry = dbentry.createEntry(1);
 		((WebsiteEntry) websiteEntry).setNameOfWebsite(addWebsiteName.getText());
@@ -173,6 +173,13 @@ public class Controllers {
 	    BufferedWriter bw = new BufferedWriter(writer);
 	    bw.write(gson.toJson(websiteEntry));
 	    bw.close();
+	}
+	
+	public void deserializeWebsiteEntry(ActionEvent e) throws Exception{
+		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
+		Gson gson = new Gson();
+		String S = gson.toJson(file);
+		WebsiteEntry[] websiteEntryArray = gson.fromJson(S, WebsiteEntry[].class);
 	}
 	
 }

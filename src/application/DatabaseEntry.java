@@ -46,15 +46,29 @@ public class DatabaseEntry {
 			typeOfEntry = 1;
 		}
 		
+		public String getNameofWebsite() {
+			return nameOfWebsite;
+		}
+		
 		public void setNameOfWebsite(String name) {
 			nameOfWebsite = name;
+		}
+		
+		public String setWebURL() {
+			return nameOfWebsite;
 		}
 		public void setWebURL(String url) {
 			webURL = url;
 		}
+		
+		public String setPassword() {
+			return nameOfWebsite;
+		}
+		
 		public void setPassword(String psw) {
 			password = psw;
 		}
+		
 	}
 	class SecuredTexEntry {
 		private String securedText;
