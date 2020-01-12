@@ -52,8 +52,8 @@ public class DatabaseEntry {
 		public void setWebURL(String url) {
 			webURL = url;
 		}
-		public void setPassword(String password) {
-			password = password;
+		public void setPassword(String psw) {
+			password = psw;
 		}
 	}
 	class SecuredTexEntry {
