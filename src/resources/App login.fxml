@@ -6,7 +6,6 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import de.jensd.fx.glyphs.octicons.OctIconView?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.GaussianBlur?>
@@ -79,50 +78,43 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="createDBPage" layoutX="278.0" layoutY="20.0" maxHeight="521.0" maxWidth="360.0" minHeight="521.0" minWidth="360.0" prefHeight="521.0" prefWidth="360.0" style="-fx-background-color: white;" stylesheets="@../application/application.css" visible="false" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="278.0" AnchorPane.rightAnchor="278.0" AnchorPane.topAnchor="20.0">
+      <AnchorPane fx:id="createDBPage" layoutX="301.0" layoutY="52.0" prefHeight="425.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="1.0" layoutY="201.0" prefHeight="232.0" prefWidth="314.0" style="-fx-background-color: white;">
          <children>
-            <Pane fx:id="banner" prefHeight="100.0" prefWidth="360.0" styleClass="banner" stylesheets="@../application/application.css">
-               <children>
-                  <Text fill="WHITE" layoutX="34.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a new database" textAlignment="CENTER" wrappingWidth="292.33740234375">
-                     <font>
-                        <Font name="Futura Book" size="27.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
-            <Text layoutX="22.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Database name" wrappingWidth="167.13671875">
+            <JFXButton layoutX="86.0" layoutY="148.0" onAction="#onCreateDB" prefHeight="31.0" prefWidth="143.0" style="-fx-background-color: #263A5B;" text="Create" textFill="WHITE">
                <font>
-                  <Font size="17.0" />
-               </font>
-            </Text>
-            <Text layoutX="22.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="167.13671875">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Text>
-            <JFXPasswordField fx:id="setPasswordDB" layoutX="22.0" layoutY="261.0" prefHeight="25.0" prefWidth="268.0" />
-            <JFXTextField fx:id="setNameDB" layoutX="22.0" layoutY="173.0" prefHeight="25.0" prefWidth="268.0" />
-            <Circle fill="#38393b" layoutX="297.0" layoutY="426.0" onMouseClicked="#onCreateDB" radius="47.0" stroke="#38393b" strokeType="INSIDE" strokeWidth="0.0" />
-            <MaterialDesignIconView accessibleRole="PARENT" fill="WHITE" glyphName="LOCK" layoutX="267.0" layoutY="448.0" mouseTransparent="true" size="60" />
-            <JFXButton fx:id="ChooseDirectory" layoutX="22.0" layoutY="344.0" onAction="#chooseDirectory" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #7AC8FF;" text="Choose Location">
-               <font>
-                  <Font name="Futura Book" size="20.0" />
-               </font>
-            </JFXButton>
-            <JFXButton layoutX="22.0" layoutY="434.0" onMouseClicked="#backToMenu" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: #7AC8FF;" text="Back">
-               <font>
-                  <Font name="Futura Book" size="20.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </JFXButton>
          </children>
+      </Pane>
+      <Pane layoutX="47.0" layoutY="150.0" prefHeight="153.0" prefWidth="220.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextField layoutX="41.0" layoutY="18.0" promptText="Database name" />
+            <JFXPasswordField fx:id="setPasswordDB" layoutX="41.0" layoutY="58.0" promptText="Password" />
+            <JFXTextField fx:id="directoryTextField" layoutX="42.0" layoutY="98.0" promptText="File location" />
+            <FontAwesomeIconView fill="#4f7eb6" glyphName="CIRCLE_ALT_NOTCH" layoutX="15.0" layoutY="40.0" size="18" />
+            <FontAwesomeIconView fill="#4f7eb6" glyphName="LOCK" layoutX="18.0" layoutY="78.0" size="18" />
+            <FontAwesomeIconView fill="#4f7eb6" glyphName="FILE_ALT" layoutX="18.0" layoutY="121.0" size="15" />
+            <JFXButton fx:id="ChooseDirectory" layoutX="181.0" layoutY="98.0" onAction="#chooseDirectory" prefHeight="15.0" prefWidth="15.0" style="-fx-background-color: #828282;" text="..." textFill="WHITE" />
+         </children>
          <effect>
-            <DropShadow height="40.0" radius="19.5" spread="0.16" width="40.0" />
+            <DropShadow spread="0.15" />
          </effect>
-         <padding>
-            <Insets right="521.0" />
-         </padding>
-      </AnchorPane>
-      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;">
+      </Pane>
+      <FontAwesomeIconView fill="WHITE" glyphName="LOCK" layoutX="145.0" layoutY="61.0" size="36" />
+      <Text fill="WHITE" layoutX="67.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create a New Database" textAlignment="CENTER" wrappingWidth="179.0000070631504">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Text>
+   </children>
+   <effect>
+      <DropShadow blurType="GAUSSIAN" height="255.0" radius="127.0" width="255.0" />
+   </effect>
+</AnchorPane>
+      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
          <children>
             <Pane layoutX="14.0" layoutY="147.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
                <children>
