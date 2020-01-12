@@ -214,7 +214,7 @@ public class Controllers {
 		}
 	}
 
-	public void createPassword(MouseEvent e) throws Exception {
+	public void savePassword(MouseEvent e) throws Exception {
 		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
 
 		DatabaseEntry dbentry = new DatabaseEntry();
@@ -229,9 +229,10 @@ public class Controllers {
 		BufferedWriter bw = new BufferedWriter(writer);
 		bw.write(gson.toJson(websiteEntry));
 		bw.close();
+		deserializeWebsiteEntry();
 	}
 
-	public void deserializeWebsiteEntry(ActionEvent e) throws Exception{
+	public void deserializeWebsiteEntry() throws Exception{
 		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
 		Gson gson = new Gson();
 		String S = gson.toJson(file);
@@ -299,7 +300,7 @@ public class Controllers {
 			password6.setText(websiteEntryArray[5].getPassword());
 		}
 		
-		//readd account
+		//read account
 		
 		if(websiteEntryArray[0].getAccount()!=null) {
 			account1.setText(websiteEntryArray[0].getAccount());
