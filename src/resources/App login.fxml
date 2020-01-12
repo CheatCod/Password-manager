@@ -124,12 +124,12 @@
          <children>
             <AnchorPane layoutX="110.0" layoutY="55.0" prefHeight="437.0" prefWidth="318.0" style="-fx-background-color: grey;" visible="false">
                <children>
-                  <JFXTextField layoutX="14.0" layoutY="65.0" />
-                  <Text fx:id="addWebsiteName" layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name" wrappingWidth="133.33740890026093" />
-                  <JFXTextField layoutX="14.0" layoutY="135.0" />
-                  <Text fx:id="addWebURL" layoutX="15.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web URL" wrappingWidth="133.33740890026093" />
-                  <JFXTextField layoutX="14.0" layoutY="215.0" />
-                  <Text fx:id="addPassword" layoutX="15.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="133.33740890026093" />
+                  <JFXTextField fx:id="addWebsiteName" layoutX="14.0" layoutY="65.0" />
+                  <Text  layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name" wrappingWidth="133.33740890026093" />
+                  <JFXTextField fx:id="addWebsiteURL" layoutX="14.0" layoutY="135.0" />
+                  <Text layoutX="15.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web URL" wrappingWidth="133.33740890026093" />
+                  <JFXTextField fx:id="addPassword" layoutX="14.0" layoutY="215.0" />
+                  <Text layoutX="15.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="133.33740890026093" />
                </children>
             </AnchorPane>
             <Pane layoutX="14.0" layoutY="147.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
