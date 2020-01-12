@@ -78,7 +78,7 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="createDBPage" layoutX="301.0" layoutY="52.0" prefHeight="425.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+      <AnchorPane fx:id="createDBPage" layoutX="301.0" layoutY="52.0" prefHeight="425.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" visible="false" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="1.0" layoutY="201.0" prefHeight="232.0" prefWidth="314.0" style="-fx-background-color: white;">
          <children>
