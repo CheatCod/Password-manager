@@ -56,6 +56,8 @@ public class Controllers {
 	@FXML
 	protected JFXButton ChooseDirectory;
 	@FXML
+	protected JFXTextField directoryTextField;
+	@FXML
 	protected JFXPasswordField setPasswordDB;
 	@FXML
 	protected JFXTextField setNameDB;
@@ -119,12 +121,33 @@ public class Controllers {
 	protected JFXButton webEntry;
 	@FXML
 	protected AnchorPane websiteEntryPrompt;
-
+	@FXML
+	protected JFXButton passwordMenuSelection;
+	@FXML
+	protected JFXButton securedText;
+	@FXML
+	protected AnchorPane websitePage;
+	@FXML
+	protected AnchorPane securedtextPage;
 
 	protected String fileAddress;
 	protected String folderAddress;
 	List<WebsiteEntry> Passwords = new ArrayList<>();
-
+	
+	public void editSecuredText(MouseEvent e) {
+		
+	}
+	public void securedTextSelection(ActionEvent e) {
+		securedtextPage.setVisible(true);
+		websitePage.setVisible(false);
+	}
+	public void passwordMenuSelection(ActionEvent e) {
+		websitePage.setVisible(true);
+		securedtextPage.setVisible(false);
+	}
+	public void editPassword (MouseEvent e) {
+		websiteEntryPrompt.setVisible(true);
+	}
 	public void selectFile(ActionEvent event) {
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().addAll(new ExtensionFilter("AES Encrypted files", "*.aes"));
@@ -150,6 +173,11 @@ public class Controllers {
 		menu.setDisable(true);
 		menu.setEffect(gaussianBlur);
 		txtPswField.setText("");
+		websitePage.setDisable(true);
+		websitePage.setEffect(gaussianBlur);
+		securedtextPage.setDisable(true);
+		securedtextPage.setEffect(gaussianBlur);
+		
 	}
 
 	public void Login(ActionEvent event) throws Exception {
@@ -167,10 +195,24 @@ public class Controllers {
 				promptDB.setVisible(false);
 				menu.setMouseTransparent(false);
 				menu.setDisable(false);
+				websitePage.setDisable(false);
+				websitePage.setEffect(gaussianBlur);
+				securedtextPage.setDisable(false);
+				securedtextPage.setEffect(gaussianBlur);
 			}
 	}
 
-	public void onCreateDB(MouseEvent e) throws Exception {
+	public void onCreateDB(ActionEvent e) throws Exception {
+		try {
+			setNameDB.getText().isEmpty();
+		}
+		catch (Exception e1){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Warning");
+			alert.setHeaderText(null);
+			alert.setContentText("An error has occurred. Please try again");
+			alert.showAndWait();
+		}
 		if (setPasswordDB.getText().isEmpty() || setNameDB.getText().isEmpty() || folderAddress == null) {
 
 			Alert alert = new Alert(AlertType.INFORMATION);
@@ -180,13 +222,13 @@ public class Controllers {
 			alert.showAndWait();
 		} else {
 
-			File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
+			File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 			fileAddress = file.getAbsolutePath();
 			if (file.createNewFile()) {
 				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
 				promptDB.setVisible(true);
 				fileAddress = file.getAbsolutePath() + ".aes";
-				System.out.println(fileAddress);
+				
 				openDB.setFont(Font.font("System", 12));
 				openDB.setText(fileAddress);
 				lock.setVisible(false);
@@ -197,6 +239,7 @@ public class Controllers {
 			// System.out.println(""+ChooseDirectory.getText()+"\\"+setNameDB.getText()+".txt");
 			// create file and serialize to json
 		}
+		
 	}
 
 	public void backToMenu(MouseEvent e) throws Exception {
@@ -208,14 +251,14 @@ public class Controllers {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		File selectedDirectory = directoryChooser.showDialog(null);
 		if (selectedDirectory != null) {
-			ChooseDirectory.setFont(Font.font("System", 12));
-			ChooseDirectory.setText(selectedDirectory.getAbsolutePath());
+			
 			folderAddress = selectedDirectory.getAbsolutePath();
+			directoryTextField.setText(folderAddress);
 		}
 	}
 
 	public void savePassword(MouseEvent e) throws Exception {
-		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
+		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 
 		DatabaseEntry dbentry = new DatabaseEntry();
 		Object websiteEntry = dbentry.createEntry(1);
@@ -233,7 +276,7 @@ public class Controllers {
 	}
 
 	public void deserializeWebsiteEntry() throws Exception{
-		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
+		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 		Gson gson = new Gson();
 		String S = gson.toJson(file);
 		WebsiteEntry[] websiteEntryArray = gson.fromJson(S, WebsiteEntry[].class);
