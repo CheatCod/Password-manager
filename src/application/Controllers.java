@@ -64,7 +64,9 @@ public class Controllers {
 	@FXML
 	protected JFXTextField addWebsiteURL;
 	@FXML
-	protected JFXTextField addPassword;
+	protected JFXTextField addAccount;
+	@FXML
+	protected JFXPasswordField addPassword;
 	@FXML
 	protected Text websiteName1;
 	@FXML
@@ -113,6 +115,10 @@ public class Controllers {
 	protected PasswordField password5;
 	@FXML
 	protected PasswordField password6;
+	@FXML
+	protected JFXButton webEntry;
+	@FXML
+	protected AnchorPane websiteEntryPrompt;
 
 
 	protected String fileAddress;
