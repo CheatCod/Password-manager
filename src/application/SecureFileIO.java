@@ -19,47 +19,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class SecureFileIO {
-<<<<<<< HEAD
-/*	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		System.out.println("Encrypt/Decrypt?");
-		String input = br.readLine();
-		String password;
-		String fileAddress;
-		if (input.equalsIgnoreCase("Encrypt")) {
-			System.out.println("file address:");
-			fileAddress = br.readLine();
-			File file = new File(fileAddress);
-			double fileSizeMb = file.length()/1048576;
-			System.out.println("password:");
-			password = br.readLine();
-			double startTime = System.nanoTime();
-			fileEncrypt(password, fileAddress);
-			double endTime = System.nanoTime();
-			double timeElapsed = endTime - startTime;
-			System.out.println("Execution time in milliseconds : " + 
-					timeElapsed / 1000000 + " for file " + fileSizeMb + " mb");
-		}
-		if (input.equalsIgnoreCase("Decrypt")) {
-			System.out.println("file address:");
-			fileAddress = br.readLine();
-			File file = new File(fileAddress);
-			System.out.println("password:");
-			password = br.readLine();
-			double startTime = System.nanoTime();
-			fileDecrypt(password, fileAddress);
-			double endTime = System.nanoTime();
-			double timeElapsed = endTime - startTime;
-			System.out.println("Execution time in milliseconds : " + 
-					timeElapsed / 1000000 + " for file " + file.length()/1048576 + " mb");
-		}
-	}**/
-=======
-	public static void main(String[] args) throws Exception {
-
-	}
->>>>>>> refs/remotes/origin/Derrick
 
 	/**this method takes in a fileaddress and encrypt the file at the fileaddress
 	 * @param password
