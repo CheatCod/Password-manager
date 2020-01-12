@@ -19,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class SecureFileIO {
+<<<<<<< HEAD
 /*	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
@@ -54,12 +55,23 @@ public class SecureFileIO {
 					timeElapsed / 1000000 + " for file " + file.length()/1048576 + " mb");
 		}
 	}**/
+=======
+	public static void main(String[] args) throws Exception {
 
+	}
+>>>>>>> refs/remotes/origin/Derrick
+
+	/**this method takes in a fileaddress and encrypt the file at the fileaddress
+	 * @param password
+	 * @param fileAddress
+	 * @throws Exception
+	 */
 	protected static void fileEncrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		File file = new File(fileAddress);
 		FileInputStream inFile = new FileInputStream(fileAddress);
 		FileOutputStream outFile = new FileOutputStream(file.getParent() + "\\" + file.getName() + ".aes");
+		fileAddress = file.getParent() + "\\" + file.getName() + ".aes";
 		byte[] salt = new byte[8];
 		SecureRandom secureRandom = new SecureRandom();
 		secureRandom.nextBytes(salt);
@@ -92,13 +104,18 @@ public class SecureFileIO {
 		outFile.flush();
 		outFile.close();
 		file.delete();
-		System.out.println("File Encrypted.");
 	}
 
+	/**this method takes in an file address and decrypt the file(if applicable), returns false if not successful 
+	 * @param password
+	 * @param fileAddress
+	 * @return
+	 * @throws Exception
+	 */
 	protected static boolean fileDecrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+		File file = new File(fileAddress);
 		FileInputStream fis = new FileInputStream(fileAddress);
-
 		FileOutputStream fos = new FileOutputStream(fileAddress.replace(".aes", ""));
 		// reading the salt
 		// user should have secure mechanism to transfer the
@@ -130,7 +147,7 @@ public class SecureFileIO {
 		fis.close();
 		fos.flush();
 		fos.close();
-		System.out.println("File Decrypted.");
+		file.delete();
 		} catch (Exception e) {
 			return false;
 		}
