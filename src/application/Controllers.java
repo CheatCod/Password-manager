@@ -179,7 +179,6 @@ public class Controllers {
 		securedtextPage.setEffect(gaussianBlur);
 		
 	}
-
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
 		if (fileAddress != null)
