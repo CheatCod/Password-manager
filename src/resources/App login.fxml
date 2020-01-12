@@ -140,15 +140,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName1" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url1" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account1" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password1" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -182,15 +182,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName2" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url2" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account2" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password2" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -221,15 +221,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName3" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url3" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account3" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password3" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -260,15 +260,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName4" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url4" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account4" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password4" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -299,15 +299,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName5" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url5" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account5" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password5" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -338,15 +338,15 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="websiteName6" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="url6" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account6" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password6" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />

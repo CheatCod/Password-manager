@@ -37,6 +37,7 @@ public class DatabaseEntry {
 		private String nameOfWebsite;
 		private String webURL;
 		private String password;
+		private String account;
 		private int typeOfEntry;
 		
 		public WebsiteEntry() {
@@ -54,19 +55,27 @@ public class DatabaseEntry {
 			nameOfWebsite = name;
 		}
 		
-		public String setWebURL() {
+		public String getWebURL() {
 			return nameOfWebsite;
 		}
 		public void setWebURL(String url) {
 			webURL = url;
 		}
 		
-		public String setPassword() {
+		public String getPassword() {
 			return nameOfWebsite;
 		}
 		
 		public void setPassword(String psw) {
 			password = psw;
+		}
+		
+		public String getAccount() {
+			return account;
+		}
+		
+		public void setAccount(String acnt) {
+			account = acnt;
 		}
 		
 	}
