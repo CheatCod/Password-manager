@@ -5,6 +5,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -121,7 +122,7 @@
             <Insets right="521.0" />
          </padding>
       </AnchorPane>
-      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;">
+      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
          <children>
             <Pane layoutX="14.0" layoutY="147.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
                <children>
@@ -360,6 +361,43 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
                </children>
             </Pane>
+            <AnchorPane fx:id="websiteEntryPrompt" layoutX="78.0" layoutY="52.0" prefHeight="455.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" visible="false">
+               <children>
+                  <Pane layoutY="224.0" prefHeight="232.0" prefWidth="314.0" style="-fx-background-color: white;">
+                     <children>
+                        <JFXButton fx:id="webEntry" layoutX="86.0" layoutY="148.0" prefHeight="31.0" prefWidth="143.0" style="-fx-background-color: #263A5B;" text="Add" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="47.0" layoutY="125.0" prefHeight="215.0" prefWidth="220.0" style="-fx-background-color: white;">
+                     <children>
+                        <JFXTextField fx:id="addWebsiteName" layoutX="41.0" layoutY="18.0" promptText="Name" />
+                        <JFXTextField fx:id="addWebsiteURL" layoutX="41.0" layoutY="58.0" promptText="URL" />
+                        <JFXTextField fx:id="addAccount" layoutX="42.0" layoutY="98.0" promptText="Account" />
+                        <JFXPasswordField layoutX="41.0" layoutY="138.0" promptText="Password" />
+                        <FontAwesomeIconView fill="#4f7eb6" glyphName="CIRCLE_ALT_NOTCH" layoutX="15.0" layoutY="40.0" size="18" />
+                        <FontAwesomeIconView fill="#4f7eb6" glyphName="LINK" layoutX="16.0" layoutY="76.0" size="18" />
+                        <OctIconView fill="#4f7eb6" glyphName="MAIL" layoutX="18.0" layoutY="116.0" size="18" />
+                        <FontAwesomeIconView fill="#4f7eb6" glyphName="LOCK" layoutX="20.0" layoutY="157.0" size="18" />
+                     </children>
+                     <effect>
+                        <DropShadow spread="0.15" />
+                     </effect>
+                  </Pane>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LOCK" layoutX="145.0" layoutY="61.0" size="36" />
+                  <Text fill="WHITE" layoutX="67.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Entry for Website" textAlignment="CENTER" wrappingWidth="179.0000070631504">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow blurType="GAUSSIAN" height="255.0" radius="127.0" width="255.0" />
+               </effect>
+            </AnchorPane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="securedtextPage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
