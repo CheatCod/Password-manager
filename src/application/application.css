@@ -5,3 +5,10 @@
 .background {
 	-fx-background-color: linear-gradient(rgba(223,234,247,1), rgba(244,248,252,1));
 }
+.entry {
+	-fx-background-color: linear-gradient(to left, rgba(30,51,85,1), rgba(30,51,85,0.7931547619047619));
+}
+.card {
+	-fx-background-color: linear-gradient(#1e3355, #64758f);
+	
+}

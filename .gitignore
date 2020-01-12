@@ -2,8 +2,8 @@
 /resources/
 /application/
 .settings/
-bin/
-tmp/
+/bin/
+/tmp/
 .metadata
 .classpath
 .project
@@ -13,3 +13,4 @@ tmp/
 *~.nib
 local.properties
 .loadpath
+/testfiles/
