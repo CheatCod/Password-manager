@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -55,6 +57,13 @@ public class Controllers {
 	protected JFXPasswordField setPasswordDB;
 	@FXML
 	protected JFXTextField setNameDB;
+	@FXML
+	protected JFXTextField addWebsiteName;
+	@FXML
+	protected JFXTextField addWebsiteURL;
+	@FXML
+	protected JFXTextField addPassword;
+	
 
 	protected String fileAddress;
 	protected String folderAddress;
@@ -118,16 +127,6 @@ public class Controllers {
 			File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
 			fileAddress = file.getAbsolutePath();
 			if (file.createNewFile()) {
-				DatabaseEntry dbentry = new DatabaseEntry();
-				Object websiteEntry = dbentry.createEntry(1);
-				((WebsiteEntry) websiteEntry).setNameOfWebsite("Facebook");
-				((WebsiteEntry) websiteEntry).setWebURL("Facebook.com");
-				Gson gson = new GsonBuilder().setPrettyPrinting().create();
-				FileWriter writer = new FileWriter(file);
-			    BufferedWriter bw = new BufferedWriter(writer); 
-			    System.out.println(gson.toJson(websiteEntry));
-			    bw.write(gson.toJson(websiteEntry));
-			    bw.close();
 				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
 				promptDB.setVisible(true);
 				fileAddress = file.getAbsolutePath() + ".aes";
@@ -158,4 +157,22 @@ public class Controllers {
 			folderAddress = selectedDirectory.getAbsolutePath();
 		}
 	}
+	
+	public void createPassword(MouseEvent e) throws Exception {
+		File file = new File("" + ChooseDirectory.getText() + "\\" + setNameDB.getText());
+		List<WebsiteEntry> Passwords = new ArrayList<>();
+		DatabaseEntry dbentry = new DatabaseEntry();
+		Object websiteEntry = dbentry.createEntry(1);
+		((WebsiteEntry) websiteEntry).setNameOfWebsite(addWebsiteName.getText());
+		((WebsiteEntry) websiteEntry).setWebURL(addWebsiteURL.getText());
+		((WebsiteEntry) websiteEntry).setPassword(addPassword.getText());
+		
+		Passwords.add((WebsiteEntry) websiteEntry);
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
+		FileWriter writer = new FileWriter(file);
+	    BufferedWriter bw = new BufferedWriter(writer);
+	    bw.write(gson.toJson(websiteEntry));
+	    bw.close();
+	}
+	
 }
