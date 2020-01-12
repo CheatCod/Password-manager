@@ -8,3 +8,7 @@
 .entry {
 	-fx-background-color: linear-gradient(to left, rgba(30,51,85,1), rgba(30,51,85,0.7931547619047619));
 }
+.card {
+	-fx-background-color: linear-gradient(#1e3355, #64758f);
+	
+}
