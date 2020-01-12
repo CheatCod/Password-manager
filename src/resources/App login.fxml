@@ -119,17 +119,16 @@
             <Insets right="521.0" />
          </padding>
       </AnchorPane>
-      <AnchorPane layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #F2F2F2;">
+      <AnchorPane layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: white;">
          <children>
-            <Circle fill="#38393b" layoutX="584.0" layoutY="465.0" onMouseClicked="#onCreateDB" radius="47.0" stroke="#38393b" strokeType="INSIDE" strokeWidth="0.0" />
-            <AnchorPane layoutX="89.0" layoutY="40.0" prefHeight="480.0" prefWidth="334.0" style="-fx-background-color: grey;">
+            <AnchorPane layoutX="110.0" layoutY="55.0" prefHeight="437.0" prefWidth="318.0" style="-fx-background-color: grey;">
                <children>
-                  <JFXTextField layoutX="20.0" layoutY="64.0" />
-                  <Text layoutX="20.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of website" wrappingWidth="249.99999966472387" />
-                  <Text layoutX="20.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website url" wrappingWidth="249.99999966472387" />
-                  <JFXTextField layoutX="20.0" layoutY="128.0" />
-                  <Text layoutX="20.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="249.99999966472387" />
-                  <JFXTextField layoutX="20.0" layoutY="205.0" />
+                  <JFXTextField layoutX="14.0" layoutY="65.0" />
+                  <Text layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name" wrappingWidth="133.33740890026093" />
+                  <JFXTextField layoutX="14.0" layoutY="135.0" />
+                  <Text layoutX="15.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web URL" wrappingWidth="133.33740890026093" />
+                  <JFXTextField layoutX="14.0" layoutY="215.0" />
+                  <Text layoutX="15.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="133.33740890026093" />
                </children>
             </AnchorPane>
          </children>
