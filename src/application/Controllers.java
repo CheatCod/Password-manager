@@ -4,10 +4,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -33,6 +37,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
 public class Controllers {
 	@FXML
@@ -133,9 +138,9 @@ public class Controllers {
 	protected String fileAddress;
 	protected String folderAddress;
 	List<WebsiteEntry> Passwords = new ArrayList<>();
-	
+
 	public void editSecuredText(MouseEvent e) {
-		
+
 	}
 	public void securedTextSelection(ActionEvent e) {
 		securedtextPage.setVisible(true);
@@ -166,18 +171,22 @@ public class Controllers {
 		promptDB.setVisible(false);
 	}
 
-	public void switchDB(ActionEvent event) {
+	public void switchDB(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
 		promptDB.setVisible(true);
 		createDBPage.setVisible(false);
 		menu.setDisable(true);
 		menu.setEffect(gaussianBlur);
-		txtPswField.setText("");
 		websitePage.setDisable(true);
 		websitePage.setEffect(gaussianBlur);
 		securedtextPage.setDisable(true);
 		securedtextPage.setEffect(gaussianBlur);
-		
+		promptDB.setVisible(true);
+
+		SecureFileIO.fileEncrypt(txtPswField.getText(), openDB.getText().replace(".aes", ""));
+		//fileAddress = openDB.getText()+".aes";
+		txtPswField.setText("");
+
 	}
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
@@ -227,7 +236,7 @@ public class Controllers {
 				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
 				promptDB.setVisible(true);
 				fileAddress = file.getAbsolutePath() + ".aes";
-				
+
 				openDB.setFont(Font.font("System", 12));
 				openDB.setText(fileAddress);
 				lock.setVisible(false);
@@ -238,7 +247,7 @@ public class Controllers {
 			// System.out.println(""+ChooseDirectory.getText()+"\\"+setNameDB.getText()+".txt");
 			// create file and serialize to json
 		}
-		
+
 	}
 
 	public void backToMenu(MouseEvent e) throws Exception {
@@ -250,13 +259,13 @@ public class Controllers {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
 		File selectedDirectory = directoryChooser.showDialog(null);
 		if (selectedDirectory != null) {
-			
+
 			folderAddress = selectedDirectory.getAbsolutePath();
 			directoryTextField.setText(folderAddress);
 		}
 	}
 
-	public void savePassword(MouseEvent e) throws Exception {
+	public void savePassword(ActionEvent e) throws Exception {
 		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 
 		DatabaseEntry dbentry = new DatabaseEntry();
@@ -264,105 +273,164 @@ public class Controllers {
 		((WebsiteEntry) websiteEntry).setNameOfWebsite(addWebsiteName.getText());
 		((WebsiteEntry) websiteEntry).setWebURL(addWebsiteURL.getText());
 		((WebsiteEntry) websiteEntry).setPassword(addPassword.getText());
+		((WebsiteEntry) websiteEntry).setAccount(addAccount.getText());
 
 		Passwords.add((WebsiteEntry) websiteEntry);
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		FileWriter writer = new FileWriter(file);
 		BufferedWriter bw = new BufferedWriter(writer);
-		bw.write(gson.toJson(websiteEntry));
+		bw.write(gson.toJson(Passwords));
 		bw.close();
+		websiteEntryPrompt.setVisible(false);
 		deserializeWebsiteEntry();
+	}
+	private static String readLineByLineJava8(String filePath) 
+	{
+		StringBuilder contentBuilder = new StringBuilder();
+		try (Stream<String> stream = Files.lines( Paths.get(filePath), StandardCharsets.UTF_8)) 
+		{
+			stream.forEach(s -> contentBuilder.append(s).append("\n"));
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return contentBuilder.toString();
 	}
 
 	public void deserializeWebsiteEntry() throws Exception{
 		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 		Gson gson = new Gson();
-		String S = gson.toJson(file);
+		String S = readLineByLineJava8(file.getAbsolutePath());
+		System.out.println(S);
+		//Type founderListType = new TypeToken<ArrayList<Founder>>(){}.getType();
 		WebsiteEntry[] websiteEntryArray = gson.fromJson(S, WebsiteEntry[].class);
-		
+		//List<Founder> websiteEntryArray = gson.fromJson(json, classOfT)
 		//read website name
-		if(websiteEntryArray[0].getNameofWebsite()!=null) {
-			websiteName1.setText(websiteEntryArray[0].getNameofWebsite());
+		if(websiteEntryArray.length>=1) {
+			if(websiteEntryArray[0].getNameofWebsite()!=null) {
+				websiteName1.setText(websiteEntryArray[0].getNameofWebsite());
+			}
 		}
-		if(websiteEntryArray[1].getNameofWebsite()!=null) {
-			websiteName2.setText(websiteEntryArray[1].getNameofWebsite());
+		if(websiteEntryArray.length>=2) {
+			if(websiteEntryArray[1].getNameofWebsite()!=null) {
+				websiteName2.setText(websiteEntryArray[1].getNameofWebsite());
+			}
 		}
-		if(websiteEntryArray[2].getNameofWebsite()!=null) {
-			websiteName3.setText(websiteEntryArray[2].getNameofWebsite());
+		if(websiteEntryArray.length>=3) {
+			if(websiteEntryArray[2].getNameofWebsite()!=null) {
+				websiteName3.setText(websiteEntryArray[2].getNameofWebsite());
+			}
 		}
-		if(websiteEntryArray[3].getNameofWebsite()!=null) {
-			websiteName4.setText(websiteEntryArray[3].getNameofWebsite());
+		if(websiteEntryArray.length>=4) {
+			if(websiteEntryArray[3].getNameofWebsite()!=null) {
+				websiteName4.setText(websiteEntryArray[3].getNameofWebsite());
+			}
 		}
-		if(websiteEntryArray[4].getNameofWebsite()!=null) {
-			websiteName5.setText(websiteEntryArray[4].getNameofWebsite());
+		if(websiteEntryArray.length>=5) {
+			if(websiteEntryArray[4].getNameofWebsite()!=null) {
+				websiteName5.setText(websiteEntryArray[4].getNameofWebsite());
+			}
+		}if(websiteEntryArray.length>=6) {
+			if(websiteEntryArray[5].getNameofWebsite()!=null) {
+				websiteName6.setText(websiteEntryArray[5].getNameofWebsite());
+			}
 		}
-		if(websiteEntryArray[5].getNameofWebsite()!=null) {
-			websiteName6.setText(websiteEntryArray[5].getNameofWebsite());
-		}
-		
+
+
 		//read url
-		
-		if(websiteEntryArray[0].getWebURL()!=null) {
-			url1.setText(websiteEntryArray[0].getWebURL());
+		if(websiteEntryArray.length>=1) {
+			if(websiteEntryArray[0].getWebURL()!=null) {
+				url1.setText(websiteEntryArray[0].getWebURL());
+			}
 		}
-		if(websiteEntryArray[1].getWebURL()!=null) {
-			url2.setText(websiteEntryArray[1].getWebURL());
+		if(websiteEntryArray.length>=2) {
+			if(websiteEntryArray[1].getWebURL()!=null) {
+				url2.setText(websiteEntryArray[1].getWebURL());
+			}
 		}
-		if(websiteEntryArray[2].getWebURL()!=null) {
-			url3.setText(websiteEntryArray[2].getWebURL());
+		if(websiteEntryArray.length>=3) {
+			if(websiteEntryArray[2].getWebURL()!=null) {
+				url3.setText(websiteEntryArray[2].getWebURL());
+			}
 		}
-		if(websiteEntryArray[3].getWebURL()!=null) {
-			url4.setText(websiteEntryArray[3].getWebURL());
+		if(websiteEntryArray.length>=4) {
+			if(websiteEntryArray[3].getWebURL()!=null) {
+				url4.setText(websiteEntryArray[3].getWebURL());
+			}
 		}
-		if(websiteEntryArray[4].getWebURL()!=null) {
-			url5.setText(websiteEntryArray[4].getWebURL());
+		if(websiteEntryArray.length>=5) {
+			if(websiteEntryArray[4].getWebURL()!=null) {
+				url5.setText(websiteEntryArray[4].getWebURL());
+			}
+		}if(websiteEntryArray.length>=6) {
+			if(websiteEntryArray[5].getWebURL()!=null) {
+				url6.setText(websiteEntryArray[5].getWebURL());
+			}
 		}
-		if(websiteEntryArray[5].getWebURL()!=null) {
-			url6.setText(websiteEntryArray[5].getWebURL());
-		}
-		
+
+
 		//read password
-		
-		if(websiteEntryArray[0].getPassword()!=null) {
-			password1.setText(websiteEntryArray[0].getPassword());
+		if(websiteEntryArray.length>=1) {
+			if(websiteEntryArray[0].getPassword()!=null) {
+				password1.setText(websiteEntryArray[0].getPassword());
+			}
+		}if(websiteEntryArray.length>=2) {
+			if(websiteEntryArray[1].getPassword()!=null) {
+				password2.setText(websiteEntryArray[1].getPassword());
+			}
+		}if(websiteEntryArray.length>=3) {
+			if(websiteEntryArray[2].getPassword()!=null) {
+				password3.setText(websiteEntryArray[2].getPassword());
+			}
+		}if(websiteEntryArray.length>=4) {
+			if(websiteEntryArray[3].getPassword()!=null) {
+				password4.setText(websiteEntryArray[3].getPassword());
+			}
 		}
-		if(websiteEntryArray[1].getPassword()!=null) {
-			password2.setText(websiteEntryArray[1].getPassword());
+		if(websiteEntryArray.length>=5) {
+			if(websiteEntryArray[4].getPassword()!=null) {
+				password5.setText(websiteEntryArray[4].getPassword());
+			}
 		}
-		if(websiteEntryArray[2].getPassword()!=null) {
-			password3.setText(websiteEntryArray[2].getPassword());
+		if(websiteEntryArray.length>=6) {
+			if(websiteEntryArray[5].getPassword()!=null) {
+				password6.setText(websiteEntryArray[5].getPassword());
+			}
 		}
-		if(websiteEntryArray[3].getPassword()!=null) {
-			password4.setText(websiteEntryArray[3].getPassword());
-		}
-		if(websiteEntryArray[4].getPassword()!=null) {
-			password5.setText(websiteEntryArray[4].getPassword());
-		}
-		if(websiteEntryArray[5].getPassword()!=null) {
-			password6.setText(websiteEntryArray[5].getPassword());
-		}
-		
+
 		//read account
-		
-		if(websiteEntryArray[0].getAccount()!=null) {
-			account1.setText(websiteEntryArray[0].getAccount());
+		if(websiteEntryArray.length>=1) {
+			if(websiteEntryArray[0].getAccount()!=null) {
+				account1.setText(websiteEntryArray[0].getAccount());
+			}
 		}
-		if(websiteEntryArray[1].getAccount()!=null) {
-			account2.setText(websiteEntryArray[1].getAccount());
+		if(websiteEntryArray.length>=2) {
+			if(websiteEntryArray[1].getAccount()!=null) {
+				account2.setText(websiteEntryArray[1].getAccount());
+			}
 		}
-		if(websiteEntryArray[2].getAccount()!=null) {
-			account3.setText(websiteEntryArray[2].getAccount());
+		if(websiteEntryArray.length>=3) {
+			if(websiteEntryArray[2].getAccount()!=null) {
+				account3.setText(websiteEntryArray[2].getAccount());
+			}
 		}
-		if(websiteEntryArray[3].getAccount()!=null) {
-			account4.setText(websiteEntryArray[3].getAccount());
+		if(websiteEntryArray.length>=4) {
+			if(websiteEntryArray[3].getAccount()!=null) {
+				account4.setText(websiteEntryArray[3].getAccount());
+			}
 		}
-		if(websiteEntryArray[4].getAccount()!=null) {
-			account5.setText(websiteEntryArray[4].getAccount());
+		if(websiteEntryArray.length>=5) {
+			if(websiteEntryArray[4].getAccount()!=null) {
+				account5.setText(websiteEntryArray[4].getAccount());
+			}
 		}
-		if(websiteEntryArray[5].getAccount()!=null) {
-			account6.setText(websiteEntryArray[5].getAccount());
+		if(websiteEntryArray.length>=6) {
+			if(websiteEntryArray[5].getAccount()!=null) {
+				account6.setText(websiteEntryArray[5].getAccount());
+			}
 		}
-		
+
 
 	}
 
