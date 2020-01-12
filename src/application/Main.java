@@ -26,4 +26,13 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+	public void stop() throws Exception {
+		if (Controllers.dbPassword != null && Controllers.fileAddress != null) {
+			SecureFileIO.fileEncrypt(Controllers.dbPassword, Controllers.fileAddress);	
+			System.out.println("Application closed");
+		}
+		else
+			System.out.println("Application closed");
+		
+	}
 }

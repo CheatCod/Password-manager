@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -135,10 +136,27 @@ public class Controllers {
 	@FXML
 	protected AnchorPane securedtextPage;
 
-	protected String fileAddress;
-	protected String folderAddress;
+	protected static String fileAddress;
+	protected static String folderAddress;
+	protected static String dbPassword;
+	protected static String dbName;
 	List<WebsiteEntry> Passwords = new ArrayList<>();
-
+	public void switchPageFromTo(AnchorPane pgToBeSwtiched, AnchorPane pgToSwitch) {
+		pgToBeSwtiched.setVisible(false);
+		pgToSwitch.setVisible(true);
+	}
+	public void switchPageFromTo(Pane pgToBeSwtiched, AnchorPane pgToSwitch) {
+		pgToBeSwtiched.setVisible(false);
+		pgToSwitch.setVisible(true);
+	}
+	public void switchPageFromTo(AnchorPane pgToBeSwtiched, Pane pgToSwitch) {
+		pgToBeSwtiched.setVisible(false);
+		pgToSwitch.setVisible(true);
+	}
+	public void switchPageFromTo(Pane pgToBeSwtiched, Pane pgToSwitch) {
+		pgToBeSwtiched.setVisible(false);
+		pgToSwitch.setVisible(true);
+	}
 	public void editSecuredText(MouseEvent e) {
 
 	}
@@ -183,20 +201,26 @@ public class Controllers {
 		securedtextPage.setEffect(gaussianBlur);
 		promptDB.setVisible(true);
 
-		SecureFileIO.fileEncrypt(txtPswField.getText(), openDB.getText().replace(".aes", ""));
-		//fileAddress = openDB.getText()+".aes";
+		SecureFileIO.fileEncrypt(dbPassword, fileAddress);
+		fileAddress = fileAddress+".aes";
 		txtPswField.setText("");
 
 	}
+	
 	public void Login(ActionEvent event) throws Exception {
 		GaussianBlur gaussianBlur = new GaussianBlur();
-		if (fileAddress != null)
+		if (fileAddress != null && txtPswField.getText()!=null) {
+			dbPassword = txtPswField.getText();
+			dbName = setNameDB.getText();
+			System.out.println(fileAddress);
+			System.out.println(dbName);
 			if (!SecureFileIO.fileDecrypt(txtPswField.getText(), fileAddress)) {
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Warning");
 				alert.setHeaderText(null);
 				alert.setContentText("Wrong password or corrupted database");
 				alert.showAndWait();
+				
 			} else {
 				gaussianBlur.setRadius(0);
 				menu.setEffect(gaussianBlur);
@@ -207,7 +231,11 @@ public class Controllers {
 				websitePage.setEffect(gaussianBlur);
 				securedtextPage.setDisable(false);
 				securedtextPage.setEffect(gaussianBlur);
+				
+				fileAddress = fileAddress.replace(".aes", "");
+				deserializeWebsiteEntry();
 			}
+		}
 	}
 
 	public void onCreateDB(ActionEvent e) throws Exception {
@@ -229,10 +257,10 @@ public class Controllers {
 			alert.setContentText("Please enter choose a location or enter your password/database name");
 			alert.showAndWait();
 		} else {
-
 			File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
 			fileAddress = file.getAbsolutePath();
 			if (file.createNewFile()) {
+				System.out.println("encrypting file at " + fileAddress+" with password" + setPasswordDB.getText());
 				SecureFileIO.fileEncrypt(setPasswordDB.getText(), fileAddress);
 				promptDB.setVisible(true);
 				fileAddress = file.getAbsolutePath() + ".aes";
@@ -266,7 +294,7 @@ public class Controllers {
 	}
 
 	public void savePassword(ActionEvent e) throws Exception {
-		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
+		File file = new File(fileAddress);
 
 		DatabaseEntry dbentry = new DatabaseEntry();
 		Object websiteEntry = dbentry.createEntry(1);
@@ -299,10 +327,41 @@ public class Controllers {
 	}
 
 	public void deserializeWebsiteEntry() throws Exception{
-		File file = new File("" + directoryTextField.getText() + "\\" + setNameDB.getText());
+		File file = new File(fileAddress);
 		Gson gson = new Gson();
 		String S = readLineByLineJava8(file.getAbsolutePath());
+		Passwords.clear();
+		websiteName1.setText("");
+		websiteName2.setText("");
+		websiteName3.setText("");
+		websiteName4.setText("");
+		websiteName5.setText("");
+		websiteName6.setText("");
+		url1.setText("");
+		url2.setText("");
+		url3.setText("");
+		url4.setText("");
+		url5.setText("");
+		url6.setText("");
+		password1.setText("");
+		password2.setText("");
+		password3.setText("");
+		password4.setText("");
+		password5.setText("");
+		password6.setText("");
+		account1.setText("");
+		account2.setText("");
+		account3.setText("");
+		account4.setText("");
+		account5.setText("");
+		account6.setText("");
+		if (S.isEmpty()) {
+			System.out.println("empty database");
+		}
+		else {
 		System.out.println(S);
+		Type WebsiteEntryListType = new TypeToken<ArrayList<WebsiteEntry>>(){}.getType();
+		Passwords =gson.fromJson(S, WebsiteEntryListType);  
 		//Type founderListType = new TypeToken<ArrayList<Founder>>(){}.getType();
 		WebsiteEntry[] websiteEntryArray = gson.fromJson(S, WebsiteEntry[].class);
 		//List<Founder> websiteEntryArray = gson.fromJson(json, classOfT)
@@ -432,6 +491,7 @@ public class Controllers {
 		}
 
 
+	}
 	}
 
 }

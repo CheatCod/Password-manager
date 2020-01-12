@@ -74,6 +74,7 @@ public class SecureFileIO {
 	protected static boolean fileDecrypt(String password, String fileAddress) throws Exception {
 		Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 		File file = new File(fileAddress);
+		File fileDecrypted = new File(fileAddress.replace(".aes", ""));
 		FileInputStream fis = new FileInputStream(fileAddress);
 		FileOutputStream fos = new FileOutputStream(fileAddress.replace(".aes", ""));
 		// reading the salt
@@ -108,6 +109,7 @@ public class SecureFileIO {
 		fos.close();
 		file.delete();
 		} catch (Exception e) {
+			fileDecrypted.delete();
 			return false;
 		}
 		return true;
