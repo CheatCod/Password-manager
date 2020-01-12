@@ -29,8 +29,8 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Text>
-            <JFXButton layoutX="14.0" layoutY="135.0" prefHeight="31.0" prefWidth="240.0" text="             Passwords                                                     " textFill="WHITE" />
-            <JFXButton layoutX="14.0" layoutY="166.0" prefHeight="31.0" prefWidth="240.0" text="             Secured Text                                                      " textFill="WHITE" />
+            <JFXButton fx:id="passwordMenuSelection" layoutX="14.0" layoutY="135.0" onAction="#passwordMenuSelection" prefHeight="31.0" prefWidth="240.0" text="             Passwords                                                     " textFill="WHITE" />
+            <JFXButton fx:id="securedText" layoutX="14.0" layoutY="166.0" onAction="#securedTextSelection" prefHeight="31.0" prefWidth="240.0" text="             Secured Text                                                      " textFill="WHITE" />
             <JFXButton layoutX="14.0" layoutY="248.0" prefHeight="31.0" prefWidth="240.0" text="             Bank accounts                                                     " textFill="WHITE" />
             <JFXButton layoutX="8.0" layoutY="279.0" prefHeight="31.0" prefWidth="240.0" text="             Payments                                                      " textFill="WHITE" />
             <JFXButton layoutX="14.0" layoutY="310.0" prefHeight="31.0" prefWidth="240.0" text="             IDs                                                      " textFill="WHITE" />
@@ -91,7 +91,7 @@
       </Pane>
       <Pane layoutX="47.0" layoutY="150.0" prefHeight="153.0" prefWidth="220.0" style="-fx-background-color: white;">
          <children>
-            <JFXTextField layoutX="41.0" layoutY="18.0" promptText="Database name" />
+            <JFXTextField fx:id="setNameDB" layoutX="41.0" layoutY="18.0" promptText="Database name" />
             <JFXPasswordField fx:id="setPasswordDB" layoutX="41.0" layoutY="58.0" promptText="Password" />
             <JFXTextField fx:id="directoryTextField" layoutX="42.0" layoutY="98.0" promptText="File location" />
             <FontAwesomeIconView fill="#4f7eb6" glyphName="CIRCLE_ALT_NOTCH" layoutX="15.0" layoutY="40.0" size="18" />
@@ -147,7 +147,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="603.0" layoutY="147.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="603.0" layoutY="147.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -189,7 +189,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="604.0" layoutY="209.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="604.0" layoutY="209.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -228,7 +228,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="604.0" layoutY="271.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="604.0" layoutY="271.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -267,7 +267,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="605.0" layoutY="333.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="605.0" layoutY="333.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -306,7 +306,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="604.0" layoutY="396.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="604.0" layoutY="396.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -345,7 +345,7 @@
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="605.0" layoutY="458.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="605.0" layoutY="458.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -353,7 +353,7 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
                </children>
             </Pane>
-            <AnchorPane fx:id="websiteEntryPrompt" layoutX="78.0" layoutY="52.0" prefHeight="455.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css">
+            <AnchorPane fx:id="websiteEntryPrompt" layoutX="78.0" layoutY="52.0" prefHeight="455.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" visible="false">
                <children>
                   <Pane layoutY="224.0" prefHeight="232.0" prefWidth="314.0" style="-fx-background-color: white;">
                      <children>
@@ -406,20 +406,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="86.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="86.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -439,20 +439,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="150.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="150.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -472,20 +472,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="213.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="213.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -505,20 +505,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="277.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="277.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -538,20 +538,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="341.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="341.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
@@ -571,20 +571,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
-                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                   <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="22.13671875" />
                </children>
                <effect>
                   <DropShadow />
                </effect>
             </Pane>
-            <Pane layoutX="521.0" layoutY="405.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="521.0" layoutY="405.0" onMouseClicked="#editSecuredText" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
                </effect>
