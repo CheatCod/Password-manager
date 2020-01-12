@@ -120,12 +120,12 @@
             <Insets right="521.0" />
          </padding>
       </AnchorPane>
-      <AnchorPane layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;">
+      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
          <children>
             <AnchorPane layoutX="110.0" layoutY="55.0" prefHeight="437.0" prefWidth="318.0" style="-fx-background-color: grey;" visible="false">
                <children>
                   <JFXTextField fx:id="addWebsiteName" layoutX="14.0" layoutY="65.0" />
-                  <Text  layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name" wrappingWidth="133.33740890026093" />
+                  <Text layoutX="15.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name" wrappingWidth="133.33740890026093" />
                   <JFXTextField fx:id="addWebsiteURL" layoutX="14.0" layoutY="135.0" />
                   <Text layoutX="15.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Web URL" wrappingWidth="133.33740890026093" />
                   <JFXTextField fx:id="addPassword" layoutX="14.0" layoutY="215.0" />
@@ -278,6 +278,285 @@
                </effect>
                <children>
                   <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="15.0" layoutY="412.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="57.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="223.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="473.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="86.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="224.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="604.0" layoutY="412.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="15.0" layoutY="478.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="57.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="223.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="473.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="86.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="224.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="604.0" layoutY="478.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Circle fill="DODGERBLUE" layoutX="145.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" layoutX="316.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fill="DODGERBLUE" layoutX="475.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="securedtextPage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
+         <children>
+            <Pane layoutX="98.0" layoutY="86.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="86.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="98.0" layoutY="150.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="150.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="98.0" layoutY="213.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="213.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="98.0" layoutY="277.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="277.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="98.0" layoutY="341.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="341.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
+            <Pane layoutX="98.0" layoutY="405.0" prefHeight="50.0" prefWidth="413.0" styleClass="entry" stylesheets="@../application/application.css">
+               <children>
+                  <Text fill="#bcbcbc" layoutX="84.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#bcbcbc" layoutX="179.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="85.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="WHITE" layoutX="198.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+                  <Text fill="#bcbcbc" layoutX="303.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
+                  <Text fill="WHITE" layoutX="305.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="22.13671875" />
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Pane>
+            <Pane layoutX="521.0" layoutY="405.0" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="EYE" layoutX="11.0" layoutY="35.0" size="30" />
                </children>
             </Pane>
          </children>
