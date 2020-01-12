@@ -120,6 +120,8 @@ public class Controllers {
 			if (file.createNewFile()) {
 				DatabaseEntry dbentry = new DatabaseEntry();
 				Object websiteEntry = dbentry.createEntry(1);
+				((WebsiteEntry) websiteEntry).setNameOfWebsite("Facebook");
+				((WebsiteEntry) websiteEntry).setWebURL("Facebook.com");
 				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 				FileWriter writer = new FileWriter(file);
 			    BufferedWriter bw = new BufferedWriter(writer); 
