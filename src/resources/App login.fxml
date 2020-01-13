@@ -49,7 +49,7 @@
             <GaussianBlur />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
+      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;">
          <children>
             <Pane layoutX="14.0" layoutY="147.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
                <children>
@@ -90,9 +90,6 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
                </children>
             </Pane>
-            <Circle fill="DODGERBLUE" layoutX="145.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="DODGERBLUE" layoutX="316.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
-            <Circle fill="DODGERBLUE" layoutX="475.0" layoutY="71.0" radius="47.0" stroke="BLACK" strokeType="INSIDE" />
             <Pane layoutX="15.0" layoutY="209.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
                <children>
                   <Text fill="#bcbcbc" layoutX="57.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name">
@@ -325,6 +322,32 @@
                   <DropShadow blurType="GAUSSIAN" height="255.0" radius="127.0" width="255.0" />
                </effect>
             </AnchorPane>
+            <Circle fill="#ff5f58" layoutX="34.0" layoutY="40.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#ffbe2f" layoutX="34.0" layoutY="67.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#2ac940" layoutX="34.0" layoutY="93.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n vulnerabilities" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n warnings" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords are all strong!" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Pane layoutX="603.0" layoutY="85.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="13.0" layoutY="35.0" size="30" />
+               </children>
+            </Pane>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="securedtextPage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
@@ -529,7 +552,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="promptDB" layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;">
+      <AnchorPane fx:id="promptDB" layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;" visible="false">
          <children>
             <Text fill="WHITE" layoutX="77.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Started!" textAlignment="CENTER" wrappingWidth="206.13671875">
                <font>
