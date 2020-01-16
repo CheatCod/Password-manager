@@ -56,14 +56,14 @@ public class DatabaseEntry {
 		}
 		
 		public String getWebURL() {
-			return nameOfWebsite;
+			return webURL;
 		}
 		public void setWebURL(String url) {
 			webURL = url;
 		}
 		
 		public String getPassword() {
-			return nameOfWebsite;
+			return password;
 		}
 		
 		public void setPassword(String psw) {
