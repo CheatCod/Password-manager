@@ -1,10 +1,13 @@
 package application;
 
+import java.awt.Desktop;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -26,8 +29,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.effect.GaussianBlur;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -141,6 +149,36 @@ public class Controllers {
 	protected static String dbPassword;
 	protected static String dbName;
 	List<WebsiteEntry> Passwords = new ArrayList<>();
+	public void openWebsite(MouseEvent mouseEvent) throws IOException, URISyntaxException {
+		System.out.println("method called");
+		if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if(mouseEvent.getClickCount() == 2){
+                System.out.println("Double clicked");
+                Desktop.getDesktop().browse(new URI("http://www."+url1.getText()));
+                addToClipBoard(account1.getText());
+            }
+        }
+ 
+	}
+	public void addToClipBoard(String string) {
+		final Clipboard clipboard = Clipboard.getSystemClipboard();
+		final ClipboardContent content = new ClipboardContent();
+		content.putString(string);
+		clipboard.setContent(content);
+	}
+	public void copyAccount(MouseEvent event) {
+		addToClipBoard(account1.getText());
+	}
+	public void copyPws(MouseEvent event) {
+		addToClipBoard(password1.getText());
+	}
+	public void resetPages() {
+		securedtextPage.setVisible(false);
+		websitePage.setVisible(false);
+		promptDB.setVisible(true);
+		createDBPage.setVisible(true);
+		
+	}
 	public void switchPageFromTo(AnchorPane pgToBeSwtiched, AnchorPane pgToSwitch) {
 		pgToBeSwtiched.setVisible(false);
 		pgToSwitch.setVisible(true);

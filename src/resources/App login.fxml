@@ -49,9 +49,9 @@
             <GaussianBlur />
          </effect>
       </AnchorPane>
-      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;">
+      <AnchorPane fx:id="websitePage" layoutX="247.0" prefHeight="560.0" prefWidth="669.0" style="-fx-background-color: #243c66;" visible="false">
          <children>
-            <Pane layoutX="14.0" layoutY="147.0" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
+            <Pane layoutX="14.0" layoutY="147.0" onMouseClicked="#openWebsite" prefHeight="50.0" prefWidth="561.0" styleClass="entry" stylesheets="@../application/application.css">
                <children>
                   <Text fill="#bcbcbc" layoutX="57.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Website name">
                      <font>
@@ -63,20 +63,20 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text fill="#bcbcbc" layoutX="473.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+                  <Text fill="#bcbcbc" layoutX="473.0" layoutY="18.0" onMouseClicked="#copyPws" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
                   <Text fx:id="websiteName1" fill="WHITE" layoutX="46.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
+                  <Text fill="#bcbcbc" layoutX="336.0" layoutY="18.0" onMouseClicked="#copyAccount" strokeType="OUTSIDE" strokeWidth="0.0" text="Account">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Text>
                   <Text fx:id="url1" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account1" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <PasswordField fx:id="password1" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
+                  <Text fx:id="account1" fill="WHITE" layoutX="309.0" layoutY="34.0" onMouseClicked="#copyAccount" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <PasswordField fx:id="password1" editable="false" layoutX="469.0" layoutY="20.0" onMouseClicked="#copyPws" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
                   <DropShadow />
@@ -114,7 +114,7 @@
                      </font>
                   </Text>
                   <Text fx:id="url2" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account2" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account2" fill="WHITE" layoutX="309.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <PasswordField fx:id="password2" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
@@ -153,7 +153,7 @@
                      </font>
                   </Text>
                   <Text fx:id="url3" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account3" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account3" fill="WHITE" layoutX="309.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <PasswordField fx:id="password3" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
@@ -192,7 +192,7 @@
                      </font>
                   </Text>
                   <Text fx:id="url4" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account4" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account4" fill="WHITE" layoutX="309.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <PasswordField fx:id="password4" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
@@ -231,7 +231,7 @@
                      </font>
                   </Text>
                   <Text fx:id="url5" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account5" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account5" fill="WHITE" layoutX="309.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <PasswordField fx:id="password5" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
@@ -270,7 +270,7 @@
                      </font>
                   </Text>
                   <Text fx:id="url6" fill="WHITE" layoutX="183.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
-                  <Text fx:id="account6" fill="WHITE" layoutX="309.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
+                  <Text fx:id="account6" fill="WHITE" layoutX="309.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="102.13671875" />
                   <PasswordField fx:id="password6" editable="false" layoutX="469.0" layoutY="20.0" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: transparent;" text="asdasd" />
                </children>
                <effect>
@@ -285,6 +285,21 @@
                   <FontAwesomeIconView fill="WHITE" glyphName="WRENCH" layoutX="11.0" layoutY="35.0" size="30" />
                </children>
             </Pane>
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n vulnerabilities" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n warnings" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#bcbcbc" layoutX="50.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords are all strong!" wrappingWidth="256.00000500679016">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Text>
             <AnchorPane fx:id="websiteEntryPrompt" layoutX="78.0" layoutY="52.0" prefHeight="455.0" prefWidth="314.0" styleClass="card" stylesheets="@../application/application.css" visible="false">
                <children>
                   <Pane layoutY="224.0" prefHeight="232.0" prefWidth="314.0" style="-fx-background-color: white;">
@@ -325,21 +340,6 @@
             <Circle fill="#ff5f58" layoutX="34.0" layoutY="40.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Circle fill="#ffbe2f" layoutX="34.0" layoutY="67.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Circle fill="#2ac940" layoutX="34.0" layoutY="93.0" radius="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Text fill="#bcbcbc" layoutX="50.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n vulnerabilities" wrappingWidth="256.00000500679016">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <Text fill="#bcbcbc" layoutX="50.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords have #n warnings" wrappingWidth="256.00000500679016">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
-            <Text fill="#bcbcbc" layoutX="50.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You passwords are all strong!" wrappingWidth="256.00000500679016">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
-            </Text>
             <Pane layoutX="603.0" layoutY="85.0" onMouseClicked="#editPassword" prefHeight="50.0" prefWidth="50.0" styleClass="entry" stylesheets="@../application/application.css">
                <effect>
                   <DropShadow />
@@ -552,7 +552,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="promptDB" layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;" visible="false">
+      <AnchorPane fx:id="promptDB" layoutX="278.0" layoutY="122.0" maxHeight="341.0" maxWidth="360.0" prefHeight="341.0" prefWidth="360.0" style="-fx-background-color: #05294B;">
          <children>
             <Text fill="WHITE" layoutX="77.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get Started!" textAlignment="CENTER" wrappingWidth="206.13671875">
                <font>
